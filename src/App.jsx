@@ -16,7 +16,7 @@ function App() {
       <Toaster 
         position="top-right"
         containerStyle={{
-          top: 80,
+          top: 20,
           right: 20,
           zIndex: 9999,
         }}
