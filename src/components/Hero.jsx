@@ -1,11 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Eye, ArrowRight, Mail, UploadCloud, FileText } from 'lucide-react';
+import { Download, Eye, ArrowRight, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Button } from './ui/Button';
 import { ResumeModal } from './ui/ResumeModal';
-import { useDropzone } from 'react-dropzone';
-import localforage from 'localforage';
 import toast from 'react-hot-toast';
 
 export function Hero() {
@@ -18,16 +16,7 @@ export function Hero() {
   
   const [titleIndex, setTitleIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [resumeUrl, setResumeUrl] = useState(null);
-
-  // Load saved resume on mount
-  useEffect(() => {
-    localforage.getItem('userResume').then((savedResume) => {
-      if (savedResume) {
-        setResumeUrl(savedResume);
-      }
-    });
-  }, []);
+  const resumeUrl = "/resume/resume_shivani.pdf"; // Static resume in public folder
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -35,37 +24,6 @@ export function Hero() {
     }, 3000);
     return () => clearInterval(intervalId);
   }, []);
-
-  // Handle Resume Upload
-  const onDrop = useCallback((acceptedFiles) => {
-    const file = acceptedFiles[0];
-    if (!file) return;
-
-    if (file.type !== 'application/pdf') {
-      toast.error('Only PDF files are allowed!');
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const base64Pdf = e.target.result;
-      try {
-        await localforage.setItem('userResume', base64Pdf);
-        setResumeUrl(base64Pdf);
-        toast.success('Resume uploaded successfully!');
-      } catch (err) {
-        toast.error('Failed to save resume.');
-        console.error(err);
-      }
-    };
-    reader.readAsDataURL(file);
-  }, []);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: { 'application/pdf': ['.pdf'] },
-    maxFiles: 1
-  });
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
@@ -109,40 +67,29 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
-              {resumeUrl ? (
-                <a href={resumeUrl} download="Shivani_R_Resume.pdf">
-                  <Button>
-                    <Download size={20} /> Download Resume
-                  </Button>
-                </a>
-              ) : (
-                <Button onClick={() => toast.error('Please upload a resume first.')}>
-                  <Download size={20} /> Download Resume
+              <a href={resumeUrl} download="Shivani_Resume.pdf" className="group">
+                <Button className="hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-shadow duration-300">
+                  <Download size={20} className="group-hover:-translate-y-1 transition-transform" /> 
+                  Download Resume
                 </Button>
-              )}
+              </a>
               
-              <Button variant="secondary" onClick={() => {
-                if(resumeUrl) setIsModalOpen(true);
-                else toast.error('Please upload a resume first.');
-              }}>
-                <Eye size={20} /> View Resume
+              <Button 
+                variant="secondary" 
+                onClick={() => setIsModalOpen(true)}
+                className="hover:border-primary hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300 group"
+              >
+                <Eye size={20} className="group-hover:text-primary transition-colors" /> 
+                View Resume
               </Button>
               
-              <Button variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button 
+                variant="outline" 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="hover:bg-primary/5 transition-colors"
+              >
                 Contact Me <ArrowRight size={20} />
               </Button>
-
-              {/* Admin Upload Resume Dropzone */}
-              <div 
-                {...getRootProps()} 
-                className={`flex items-center justify-center p-3 rounded-xl border-2 border-dashed cursor-pointer transition-colors ${
-                  isDragActive ? 'border-primary bg-primary/10' : 'border-slate-300 dark:border-slate-700 hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-800'
-                }`}
-                title="Admin: Upload PDF Resume"
-              >
-                <input {...getInputProps()} />
-                <UploadCloud size={20} className={isDragActive ? 'text-primary' : 'text-slate-500'} />
-              </div>
             </div>
 
             <div className="flex items-center gap-6 pt-4">

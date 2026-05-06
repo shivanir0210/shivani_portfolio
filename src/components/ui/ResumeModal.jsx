@@ -18,23 +18,24 @@ export function ResumeModal({ isOpen, onClose, resumeUrl }) {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           onClick={e => e.stopPropagation()}
-          className="bg-surface-light dark:bg-surface-dark w-full max-w-5xl h-[85vh] flex flex-col rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden"
+          className="bg-surface-light dark:bg-surface-dark w-full h-full sm:w-[95vw] sm:h-[95vh] flex flex-col sm:rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden"
         >
           {/* Header */}
           <div className="flex items-center justify-between p-4 md:p-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
             <h3 className="text-xl font-bold">Resume</h3>
             <div className="flex items-center gap-4">
               {resumeUrl && (
-                <a href={resumeUrl} download="Shivani_R_Resume.pdf">
-                  <Button variant="primary" className="py-2 px-4 text-sm hidden sm:flex">
+                <a href={resumeUrl} download="Shivani_Resume.pdf">
+                  <Button variant="primary" className="py-2 px-4 text-sm flex items-center shadow-lg hover:shadow-primary/40 transition-shadow">
                     <Download size={16} /> Download PDF
                   </Button>
                 </a>
               )}
               <button 
                 onClick={onClose}
-                className="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors"
+                className="p-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full transition-all duration-300 hover:rotate-90 hover:text-red-500"
               >
                 <X size={24} />
               </button>
