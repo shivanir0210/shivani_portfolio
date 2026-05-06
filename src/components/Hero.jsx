@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { Download, Eye, ArrowRight, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Button } from './ui/Button';
-import { ResumeModal } from './ui/ResumeModal';
-import toast from 'react-hot-toast';
 
 export function Hero() {
   const titles = [
@@ -13,10 +11,8 @@ export function Hero() {
     "IoT & Cloud Enthusiast",
     "Problem Solver"
   ];
-  
   const [titleIndex, setTitleIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const resumeUrl = "/resume/resume_shivani.pdf"; // Static resume in public folder
+  const resumeUrl = "/resume/Shivani_Resume.pdf"; // Static resume in public folder
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -76,7 +72,7 @@ export function Hero() {
               
               <Button 
                 variant="secondary" 
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open(resumeUrl, "_blank")}
                 className="hover:border-primary hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300 group"
               >
                 <Eye size={20} className="group-hover:text-primary transition-colors" /> 
@@ -147,12 +143,6 @@ export function Hero() {
 
         </div>
       </div>
-
-      <ResumeModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        resumeUrl={resumeUrl}
-      />
     </section>
   );
 }
