@@ -12,7 +12,7 @@ export function Hero() {
     "Problem Solver"
   ];
   const [titleIndex, setTitleIndex] = useState(0);
-  const resumeUrl = "/resume/Shivani_Resume.pdf"; // Static resume in public folder
+  const resumeUrl = "/resume/resume-shivani.pdf"; // Static resume in public folder
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -29,9 +29,9 @@ export function Hero() {
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -43,7 +43,7 @@ export function Hero() {
                 Shivani R <span className="text-primary">.</span>
               </h1>
               <div className="h-10 mt-2">
-                <motion.p 
+                <motion.p
                   key={titleIndex}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -57,30 +57,30 @@ export function Hero() {
             </div>
 
             <p className="text-lg text-content-light/80 dark:text-content-dark/80 max-w-xl leading-relaxed">
-              Passionate developer specializing in building scalable MERN stack applications, 
-              innovative IoT systems, and user-centric digital experiences. Always eager to 
+              Passionate developer specializing in building scalable MERN stack applications,
+              innovative IoT systems, and user-centric digital experiences. Always eager to
               solve real-world problems through clean code and modern technology.
             </p>
 
             <div className="flex flex-wrap gap-4 items-center">
               <a href={resumeUrl} download="Shivani_Resume.pdf" className="group">
                 <Button className="hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-shadow duration-300">
-                  <Download size={20} className="group-hover:-translate-y-1 transition-transform" /> 
+                  <Download size={20} className="group-hover:-translate-y-1 transition-transform" />
                   Download Resume
                 </Button>
               </a>
-              
-              <Button 
-                variant="secondary" 
+
+              <Button
+                variant="secondary"
                 onClick={() => window.open(resumeUrl, "_blank")}
                 className="hover:border-primary hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300 group"
               >
-                <Eye size={20} className="group-hover:text-primary transition-colors" /> 
+                <Eye size={20} className="group-hover:text-primary transition-colors" />
                 View Resume
               </Button>
-              
-              <Button 
-                variant="outline" 
+
+              <Button
+                variant="outline"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="hover:bg-primary/5 transition-colors"
               >
@@ -96,7 +96,7 @@ export function Hero() {
           </motion.div>
 
           {/* Right Image/Badges */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -105,9 +105,9 @@ export function Hero() {
             {/* Main Image Container */}
             <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full glass-card p-2 z-10">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
-                <img 
-                  src="/profile.png" 
-                  alt="Shivani R" 
+                <img
+                  src="/profile.png"
+                  alt="Shivani R"
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80' }} // Fallback if AI image isn't ready
                 />
@@ -115,25 +115,25 @@ export function Hero() {
             </div>
 
             {/* Floating Badges */}
-            <FloatingBadge 
+            <FloatingBadge
               className="-top-4 -left-8 md:top-10 md:left-0"
               title="250+"
               subtitle="LeetCode"
               delay={0}
             />
-            <FloatingBadge 
+            <FloatingBadge
               className="top-1/4 -right-10 md:top-32 md:-right-4"
               title="MERN Stack"
               subtitle="Intern"
               delay={1}
             />
-            <FloatingBadge 
+            <FloatingBadge
               className="bottom-1/4 -left-12 md:bottom-32 md:-left-8"
               title="1000+"
               subtitle="SkillRack"
               delay={2}
             />
-            <FloatingBadge 
+            <FloatingBadge
               className="-bottom-8 right-0 md:bottom-10 md:right-10"
               title="AWS & IoT"
               subtitle="Enthusiast"
@@ -149,9 +149,9 @@ export function Hero() {
 
 function SocialLink({ href, icon }) {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noopener noreferrer"
       className="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
     >
