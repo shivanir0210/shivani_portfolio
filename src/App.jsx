@@ -15,13 +15,31 @@ function App() {
     <div className="min-h-screen font-sans selection:bg-primary/30 selection:text-primary">
       <Toaster 
         position="top-right"
+        containerStyle={{
+          top: 80,
+          right: 20,
+          zIndex: 9999,
+        }}
         toastOptions={{
-          className: 'dark:bg-slate-800 dark:text-white',
+          className: 'dark:bg-slate-800 dark:text-white shadow-xl',
           style: {
             background: 'var(--bg-color)',
             color: 'var(--text-color)',
             borderRadius: '1rem',
+            padding: '16px',
             border: '1px solid rgba(16, 185, 129, 0.2)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#10b981',
+              secondary: 'white',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: 'white',
+            },
           },
         }}
       />

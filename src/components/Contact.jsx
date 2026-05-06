@@ -41,19 +41,13 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace these with actual EmailJS keys
-      // Register at https://www.emailjs.com/
-      const serviceId = 'YOUR_SERVICE_ID'; 
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID; 
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       
-      // We will simulate the send if keys are not set yet
-      if (serviceId === 'YOUR_SERVICE_ID') {
-        setTimeout(() => {
-          setIsSubmitting(false);
-          toast.success("Message sent successfully! (Simulated)");
-          setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 1500);
+      if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id_here') {
+        toast.error("EmailJS credentials are missing. Please check your .env file.");
+        setIsSubmitting(false);
         return;
       }
 
