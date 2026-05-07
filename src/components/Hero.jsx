@@ -15,7 +15,7 @@ export function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
 
   // Resume PDF path
-  const resumeUrl = "/resume/resume-shivani.pdf";
+  const resumeUrl = "/resume/Shivani-Resume.pdf";
 
   useEffect(() => {
     const intervalId = setInterval(() => {
