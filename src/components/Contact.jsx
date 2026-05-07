@@ -45,26 +45,38 @@ export function Contact() {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       
-      if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id_here' || serviceId === 'your_service_id') {
-        // Fallback simulation to keep the UI premium if keys aren't set yet
-        console.warn("EmailJS credentials missing. Simulating success.");
-        setTimeout(() => {
-          setIsSubmitting(false);
-          toast.success("Message sent successfully!");
-          setFormData({ name: '', email: '', subject: '', message: '' });
-        }, 1500);
-        return;
+      // Strict check to prevent fake success messages
+      if (!serviceId || !templateId || !publicKey || serviceId.includes('your_service_id')) {
+        throw new Error("EmailJS credentials are not configured properly.");
       }
 
-      await emailjs.sendForm(serviceId, templateId, form.current, {
-        publicKey: publicKey,
-      });
+      // Explicitly map formData to match exact EmailJS template variables
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
 
+      // Use emailjs.send instead of sendForm for better data control
+      const response = await emailjs.send(
+        serviceId, 
+        templateId, 
+        templateParams, 
+        {
+          publicKey: publicKey,
+        }
+      );
+
+      console.log('EmailJS Success:', response.status, response.text);
+      
+      // Only show success after confirmed response
       toast.success("Message sent successfully!");
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      toast.error("Failed to send message. Please try again later.");
+      console.error('EmailJS Error Response:', error);
+      const errorMsg = error?.text || error?.message || "Please try again later.";
+      toast.error("EmailJS Error: " + errorMsg);
     } finally {
       setIsSubmitting(false);
     }
@@ -131,7 +143,7 @@ export function Contact() {
                   <input 
                     type="text" 
                     id="name" 
-                    name="user_name"
+                    name="from_name"
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
@@ -143,7 +155,7 @@ export function Contact() {
                   <input 
                     type="email" 
                     id="email" 
-                    name="user_email"
+                    name="from_email"
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none"
