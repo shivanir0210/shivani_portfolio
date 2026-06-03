@@ -162,7 +162,7 @@ export function Hero() {
             <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full glass-card p-2 z-10">
               <div className="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
                 <img
-                  src="/profile.png"
+                  src="/photo.jpeg"
                   alt="Shivani R"
                   className="w-full h-full object-cover"
                 />
