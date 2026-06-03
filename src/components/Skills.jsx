@@ -60,9 +60,9 @@ export function Skills() {
               </div>
               <div className="flex flex-wrap gap-3">
                 {cat.skills.map((skill, sIdx) => (
-                  <span 
+                    <span 
                     key={sIdx}
-                    className="px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-colors cursor-default"
+                    className="px-4 py-2 text-sm font-medium rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_18px_rgba(16,185,129,0.35)] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                   >
                     {skill}
                   </span>
@@ -76,11 +76,14 @@ export function Skills() {
         <BentoCard delay={0.5} className="p-6 md:p-8" noHover>
           <div className="flex flex-wrap justify-center gap-4">
             {otherSkills.map((skill, idx) => (
-              <span 
+              <span
                 key={idx}
-                className="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors cursor-default"
+                className="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_14px_rgba(16,185,129,0.25)] hover:-translate-y-0.5 transition-all duration-300 rounded-lg px-2 py-1 cursor-default"
               >
-                {skill} {idx < otherSkills.length - 1 && <span className="mx-2 text-slate-300 dark:text-slate-700">•</span>}
+                {skill}{' '}
+                {idx < otherSkills.length - 1 && (
+                  <span className="mx-2 text-slate-300 dark:text-slate-700">•</span>
+                )}
               </span>
             ))}
           </div>
