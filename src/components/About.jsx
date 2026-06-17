@@ -38,7 +38,7 @@ export function About() {
           <BentoCard className="lg:col-span-2 p-8 md:p-10" delay={0.1}>
             <div className="text-lg text-content-light/80 dark:text-content-dark/80 leading-relaxed">
               <p className="mb-6">
-                I am a passionate <strong className="text-primary font-semibold">Full Stack Developer</strong> with a strong foundation in modern web technologies and a keen interest in solving real-world problems. I enjoy building applications that are both functional and user-friendly, while continuously learning new technologies to improve my skills and broaden my technical knowledge.
+                Hi, I'm Shivani 👋 — a <strong className="text-primary font-semibold">Spring Boot Developer</strong> | <strong className="text-primary font-semibold">React Developer</strong> | <strong className="text-primary font-semibold">Problem Solver</strong> with a strong foundation in modern web technologies and a keen interest in solving real-world problems. I enjoy building applications that are both functional and user-friendly, while continuously learning new technologies to improve my skills and broaden my technical knowledge.
               </p>
               <p className="mb-6">
                 My technical journey spans across the <strong className="text-primary font-semibold">MERN stack</strong>, cloud technologies, IoT systems, and AI-powered applications. I have experience developing responsive frontend interfaces using React and Tailwind CSS, creating scalable backend systems with Node.js and Express, and working with databases and cloud platforms to build efficient full-stack solutions.

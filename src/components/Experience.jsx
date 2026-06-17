@@ -12,8 +12,36 @@ export function Experience() {
         />
         
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Internship */}
+          {/* Rampex Internship */}
           <BentoCard delay={0.1} className="p-8">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-3 bg-primary/10 rounded-xl shrink-0">
+                <Briefcase className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold">Spring Boot Development Intern</h3>
+                <p className="text-lg text-primary font-medium">Rampex Technologies</p>
+                <div className="flex items-center gap-2 mt-2 text-sm text-slate-500 dark:text-slate-400">
+                  <Calendar size={16} /> Summer Internship
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-content-light/80 dark:text-content-dark/80 leading-relaxed mb-6">
+              Worked as a Spring Boot Development Intern developing full-stack applications using Spring Boot, React.js, PostgreSQL, JPA/Hibernate, and REST APIs. Gained hands-on experience in backend development, database integration, frontend development, API implementation, and collaborative software development using Git and GitHub.
+            </p>
+            
+            <div className="flex flex-wrap gap-2">
+               {["Spring Boot", "React.js", "PostgreSQL", "JPA/Hibernate", "REST APIs", "Git"].map((tag, idx) => (
+                 <span key={idx} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium">
+                   {tag}
+                 </span>
+               ))}
+            </div>
+          </BentoCard>
+
+          {/* iGenuine Internship */}
+          <BentoCard delay={0.2} className="p-8">
             <div className="flex items-start gap-4 mb-6">
               <div className="p-3 bg-primary/10 rounded-xl shrink-0">
                 <Briefcase className="w-8 h-8 text-primary" />

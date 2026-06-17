@@ -46,7 +46,7 @@ export function ResumeModal({ isOpen, onClose, resumeUrl }) {
           <div className="flex-1 w-full h-full bg-slate-200 dark:bg-slate-800 relative">
             {resumeUrl ? (
               <iframe 
-                src={`${resumeUrl}#toolbar=0`} 
+                src={`https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + resumeUrl)}&embedded=true`}
                 title="Resume PDF"
                 className="w-full h-full border-none"
               />

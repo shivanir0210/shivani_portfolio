@@ -37,11 +37,11 @@ export function Profiles() {
 
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-700">
-                <p className="text-3xl font-bold text-yellow-500 mb-1">250+</p>
+                <p className="text-3xl font-bold text-yellow-500 mb-1">300+</p>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Problems Solved</p>
               </div>
               <div className="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-100 dark:border-slate-700">
-                <p className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-1">527,455</p>
+                <p className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-1">468,866</p>
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Global Rank</p>
               </div>
             </div>

@@ -15,7 +15,7 @@ export function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
 
   // Resume PDF path
-  const resumeUrl = "/resume/Shivani_Resume.pdf";
+  const resumeUrl = "/Shivani_Resume.pdf";
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -172,14 +172,14 @@ export function Hero() {
             {/* Floating Badges */}
             <FloatingBadge
               className="-top-4 -left-8 md:top-10 md:left-0"
-              title="250+"
+              title="300+"
               subtitle="LeetCode"
               delay={0}
             />
 
             <FloatingBadge
               className="top-1/4 -right-10 md:top-32 md:-right-4"
-              title="MERN Stack"
+              title="Spring Boot"
               subtitle="Intern"
               delay={1}
             />
@@ -193,8 +193,8 @@ export function Hero() {
 
             <FloatingBadge
               className="-bottom-8 right-0 md:bottom-10 md:right-10"
-              title="AWS & IoT"
-              subtitle="Enthusiast"
+              title="Full Stack"
+              subtitle="Developer"
               delay={3}
             />
 

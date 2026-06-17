@@ -45,6 +45,22 @@ export function Projects() {
       ]
     },
     {
+      id: "quick-bite",
+      title: "Quick Bite",
+      subtitle: "Full-Stack Food Ordering Application",
+      desc: "A full-stack food ordering application built with Spring Boot and React.js, featuring restaurant management, menu browsing, order placement, and user authentication with PostgreSQL as the database.",
+      image: "/food.png",
+      tags: ["Spring Boot", "React.js", "PostgreSQL", "JPA/Hibernate", "REST APIs", "JWT"],
+      github: "https://github.com/MahaAswin/Quick_Bite.git",
+      features: [
+        "User authentication & authorization",
+        "Restaurant & menu management",
+        "Order placement & tracking",
+        "REST API backend",
+        "PostgreSQL database integration"
+      ]
+    },
+    {
       id: "atm-theft",
       title: "ATM Theft Detection",
       subtitle: "IoT Security System",
