@@ -45,11 +45,13 @@ export function ResumeModal({ isOpen, onClose, resumeUrl }) {
           {/* PDF Viewer */}
           <div className="flex-1 w-full h-full bg-slate-200 dark:bg-slate-800 relative">
             {resumeUrl ? (
-              <iframe 
-                src={`https://docs.google.com/viewer?url=${encodeURIComponent(window.location.origin + resumeUrl)}&embedded=true`}
-                title="Resume PDF"
-                className="w-full h-full border-none"
-              />
+              <object
+                data={resumeUrl}
+                type="application/pdf"
+                className="w-full h-full"
+              >
+                <embed src={resumeUrl} type="application/pdf" className="w-full h-full" />
+              </object>
             ) : (
               <div className="flex items-center justify-center h-full flex-col gap-4">
                 <p className="text-slate-500">No resume uploaded yet.</p>
