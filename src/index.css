@@ -45,3 +45,10 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Custom Circular Cursor Support */
+@media (pointer: fine) {
+  body, html, a, button, select, input, textarea, [role="button"], .cursor-pointer {
+    cursor: none !important;
+  }
+}

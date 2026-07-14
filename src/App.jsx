@@ -9,10 +9,12 @@ import { Profiles } from './components/Profiles';
 import { Contact } from './components/Contact';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Toaster } from 'react-hot-toast';
+import { CustomCursor } from './components/ui/CustomCursor';
 
 function App() {
   return (
     <div className="min-h-screen font-sans selection:bg-primary/30 selection:text-primary">
+      <CustomCursor />
       <Toaster 
         position="top-right"
         containerStyle={{
