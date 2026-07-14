@@ -22,13 +22,16 @@ export function Accomplishments() {
   ];
 
   const certifications = [
+    { name: "Guidewire DEVTrails University Hackathon 2026 – Certificate of Participation", issuer: "Guidewire DEVTrails (in partnership with EY & National Insurance Academy)", year: "2026" },
+    { name: "Introduction to Cloud Infrastructure: Describe Cloud Concepts", issuer: "Microsoft", year: "2026" },
+    { name: "Introduction to Cloud Infrastructure: Describe Azure Architecture and Services", issuer: "Microsoft", year: "2026" },
     { name: "Python for Beginners", issuer: "Sololearn", year: "2025" },
     { name: "Python for Beginners", issuer: "Infosys Springboard", year: "2025" },
     { name: "Mastering Data Structures and Algorithms using C and C++", issuer: "Udemy", year: "2025" },
     { name: "Master Full-Stack Web Development", issuer: "Udemy", year: "2025" },
     { name: "Introduction to C", issuer: "Sololearn", year: "2024" },
-    { name: "C++ Spoken Tutorial Training", issuer: "IIT Bombay", year: "2024" },
-    { name: "C Spoken Tutorial Training", issuer: "IIT Bombay", year: "2024" }
+    { name: "C Spoken Tutorial Training", issuer: "IIT Bombay", year: "2024" },
+    { name: "C++ Spoken Tutorial Training", issuer: "IIT Bombay", year: "2024" }
   ];
 
   return (
@@ -65,12 +68,15 @@ export function Accomplishments() {
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Award className="text-primary" /> Certifications
             </h3>
-            <BentoCard delay={0.3} className="p-8">
+            <BentoCard delay={0.3} className="p-8" noHover>
               <div className="grid sm:grid-cols-2 gap-6">
                 {certifications.map((cert, idx) => (
-                  <div key={idx} className="flex flex-col p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                  <div 
+                    key={idx} 
+                    className="flex flex-col p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-lg hover:shadow-primary/5 hover:border-primary/30 group/cert-item"
+                  >
                     <span className="text-xs font-bold text-primary mb-1">{cert.year}</span>
-                    <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2">{cert.name}</h4>
+                    <h4 className="font-medium text-slate-800 dark:text-slate-200 mb-2 transition-colors duration-300 group-hover/cert-item:text-slate-900 dark:group-hover/cert-item:text-white">{cert.name}</h4>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-auto">{cert.issuer}</p>
                   </div>
                 ))}

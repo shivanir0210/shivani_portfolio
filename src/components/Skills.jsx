@@ -51,10 +51,12 @@ export function Skills() {
         
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-6 mb-8">
           {categories.map((cat, idx) => (
-            <BentoCard key={idx} delay={0.1 * idx} className={`p-8 ${cat.className}`}>
+            <BentoCard key={idx} delay={0.1 * idx} className={`p-8 hover:shadow-primary/5 ${cat.className}`}>
               <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  {cat.icon}
+                <div className="p-3 bg-primary/10 rounded-xl transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.35)] shrink-0">
+                  <div className="transition-transform duration-300 group-hover:scale-110">
+                    {cat.icon}
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold">{cat.title}</h3>
               </div>

@@ -205,8 +205,10 @@ export function Contact() {
 function ContactItem({ icon, title, value, href }) {
   const content = (
     <>
-      <div className="p-3 bg-primary/10 text-primary rounded-xl shrink-0">
-        {icon}
+      <div className="p-3 bg-primary/10 text-primary rounded-xl shrink-0 transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_12px_rgba(16,185,129,0.3)]">
+        <div className="transition-transform duration-300 group-hover:scale-110">
+          {icon}
+        </div>
       </div>
       <div>
         <h4 className="text-sm font-medium text-slate-500 dark:text-slate-400">{title}</h4>
@@ -217,14 +219,14 @@ function ContactItem({ icon, title, value, href }) {
 
   if (href) {
     return (
-      <a href={href} className="flex items-center gap-4 group hover:bg-slate-50 dark:hover:bg-slate-800/50 p-2 -ml-2 rounded-xl transition-colors">
+      <a href={href} className="flex items-center gap-4 group hover:bg-slate-50 dark:hover:bg-slate-800/50 p-2 -ml-2 rounded-xl transition-all duration-300">
         {content}
       </a>
     );
   }
 
   return (
-    <div className="flex items-center gap-4 p-2 -ml-2">
+    <div className="flex items-center gap-4 group hover:bg-slate-50 dark:hover:bg-slate-800/50 p-2 -ml-2 rounded-xl transition-all duration-300">
       {content}
     </div>
   );
